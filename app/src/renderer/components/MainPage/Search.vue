@@ -1,11 +1,11 @@
 <template>
     <div id="algoliaPlaces">
-        <input type="text" id="address-input" name="address-input" placeholder="Where are we going?"/>
+        <input type="text" id="address-input" name="address-input" placeholder="Where do you want to know about the weather?"/>
     </div>
 </template>
 <script>
   import places from 'places.js';
-  import { mapState, mapActions } from 'vuex';
+  import { mapState } from 'vuex';
 
   export default{
     data() {
@@ -15,12 +15,6 @@
       ...mapState({
         currentCity: state => state.Places.currentCity,
       }),
-      ...mapActions([
-        'setLatitude',
-        'setLongitude',
-        'setCurrentCityName',
-        'setCurrentCityID',
-      ]),
       inputQueryDOM() {
         return document.querySelector('#address-input');
       },
@@ -38,6 +32,11 @@
         placesAutocomplete.on('change',
           () => {
             const inputCity = this.inputQueryDOM.value;
+            const payload = {
+              appState: 'Loading',
+              message: 'Loading',
+            };
+            this.$store.dispatch('changeAppState', payload);
             this.$store.dispatch('fetchCoordinates', inputCity);
           },
         );

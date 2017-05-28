@@ -1,8 +1,8 @@
 import { CHANGE_STATE } from '../mutation-types';
 
 const state = {
-  appState: 'Loading',
-  message: 'Loading location',
+  appState: 'Started',
+  message: 'Recently started',
   error: false,
 };
 const getters = {};
