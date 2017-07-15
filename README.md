@@ -21,7 +21,7 @@
 
 ## Overview
 
-Weather application
+Weather application. Create a parameter.js file with the api codes needed. Parameters.dist.js can help you.
 
 #### Build Setup
 
@@ -51,4 +51,5 @@ npm run lint
 - [X] Background map dynamic.
 - [ ] Keep Search History.
 - [ ] Forecast upcoming days.
-- [ ] Delete algolia
+- [ ] Delete algolia.
+- [ ] Document photos.
