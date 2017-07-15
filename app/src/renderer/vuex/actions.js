@@ -1,13 +1,17 @@
-import { SET_CURRENT_CITY_ID,
+import {
+  SET_CURRENT_CITY_ID,
   SET_LONG,
   SET_CURRENT_CITY_NAME,
   SET_LAT,
   ADD_CITY,
-  CHANGE_STATE } from './mutation-types';
+  CHANGE_STATE,
+  SET_WEATHER,
+} from './mutation-types';
 import axios from 'axios';
 import * as parameters from '../api/parameters';
+import store from './store';
 
-export const fetchCoordinates = ({ commit, state }, location) => {
+export const fetchCoordinates = ({ commit }, location) => {
   axios({
     method: 'get',
     url: 'https://maps.googleapis.com/maps/api/geocode/json?',
@@ -32,37 +36,48 @@ export const fetchCoordinates = ({ commit, state }, location) => {
       latitude: latitudeFromAPI,
       longitude: longitudeFromAPI,
     };
-
     // Adding city to the history
     commit(ADD_CITY, { city: cityToBeAdded });
-    commit(CHANGE_STATE, { payload: {
-      appState: 'Loaded',
-      message: 'City loaded properly',
+    commit(CHANGE_STATE, {
+      payload: {
+        appState: 'Loaded',
+        message: 'City loaded properly',
 
-    } });
+      },
+    });
   }).catch(error => {
-    commit(CHANGE_STATE, { payload: {
-      appState: 'Error loading the city',
-      message: error,
-      error: true,
-    } });
+    commit(CHANGE_STATE, {
+      payload: {
+        appState: 'Error loading the city',
+        message: error,
+        error: true,
+      },
+    });
   });
 };
-// export const fetchWeather = ({commit}) => {
-//   const openWeatherMapKey = parameters.apiOpenWeatherMapKey;
-//
-//   axios({
-//     method: 'get',
-//     url: 'https://api.openweathermap.org/data/2.5/weather',
-//     params: {
-//       lat: locationID,
-//       appid: openWeatherMapKey,
-//     },
-//   }).then(response => {
-//     // eslint-disable-next-line no-console
-//     console.log(response);
-//   }).catch(error => {
-// // eslint-disable-next-line no-console
-//     console.log(error);
-//   });
-// };
+export const fetchWeather = async ({ commit }) => {
+// eslint-disable-next-line no-console
+  console.log(store.state.Places.currentCity.latitude);
+// eslint-disable-next-line no-console
+  console.log(store.state.Places.currentCity.longitude);
+  axios({
+    method: 'get',
+    url: 'http://api.openweathermap.org/data/2.5/weather?',
+    params: {
+      lat: store.state.Places.currentCity.latitude,
+      lon: store.state.Places.currentCity.longitude,
+      appid: parameters.apiOpenWeatherMapKey,
+    },
+  }).then((response) => {
+    const weatherFromAPI = response.data;
+    commit(SET_WEATHER, { weather: weatherFromAPI });
+  }).catch((error) => {
+    commit(CHANGE_STATE, {
+      payload: {
+        appState: 'Error loading the weather',
+        message: error,
+        error: true,
+      },
+    });
+  });
+};

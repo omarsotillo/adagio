@@ -8,8 +8,8 @@ const state = {
   currentCity: {
     name: 'Egipto',
     place_id: 'ChIJgTwKgJcpQg0RaSKMYcHeNsQ',
-    latitude: '33',
-    longitude: '33',
+    latitude: '11',
+    longitude: '11',
   },
 };
 const getters = {};

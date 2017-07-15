@@ -5,16 +5,11 @@
 </template>
 <script>
   import places from 'places.js';
-  import { mapState } from 'vuex';
-
   export default{
     data() {
       return {};
     },
     computed: {
-      ...mapState({
-        currentCity: state => state.Places.currentCity,
-      }),
       inputQueryDOM() {
         return document.querySelector('#address-input');
       },
@@ -38,10 +33,10 @@
             };
             this.$store.dispatch('changeAppState', payload);
             this.$store.dispatch('fetchCoordinates', inputCity);
+            this.$store.dispatch('fetchWeather');
           },
         );
-      }
-      ,
+      },
     },
     mounted() {
       this.placesAutocomplete();

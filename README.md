@@ -1,8 +1,29 @@
-# Adagio
+<div align="center">
+<br>
+<img width="100" src="/docs/images/adagio.png" alt="Adagio">
+<br>
+<br>
+</div>
 
-> Weather desktop app - Vuex & Electron.js | OpenWeather 
+<p align="center" color="#6a737d">
+ Weather desktop app - Vuex & Electron.js | OpenWeather
+</p>
 
-## Build Setup
+<div align="center">
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/winter-is-coming.svg)](http://forthebadge.com)
+</div>
+
+<div align="center">
+
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+</div>
+
+## Overview
+
+Weather application
+
+#### Build Setup
 
 ``` bash
 # install dependencies
@@ -11,15 +32,23 @@ npm install
 # serve with hot reload at localhost:9080
 npm run dev
 
-# build electron app for production
+# build electron application for production
 npm run build
 
-# lint all JS/Vue component files in `app/src`
+# run unit tests
+npm test
+
+
+# lint all JS/Vue component files in `src/`
 npm run lint
 
-# run webpack in production
-npm run pack
 ```
 
 ---
-Please feel free to send me any improvement / bug / enhancement , etc via PR or issue.
+
+#### ToDo
+- [X] Fetch different places.
+- [X] Background map dynamic.
+- [ ] Keep Search History.
+- [ ] Forecast upcoming days.
+- [ ] Delete algolia
