@@ -3,7 +3,9 @@ import { SET_WEATHER } from '../mutation-types';
 const state = {
   weather: {},
 };
-const getters = {};
+const getters = {
+  weather: state => state.weather,
+};
 const actions = {
   setWeather({ commit }, weather) {
     commit(SET_WEATHER, { weather });

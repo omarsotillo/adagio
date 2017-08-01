@@ -5,9 +5,10 @@ import Router from 'vue-router';
 import store from './vuex/store';
 import App from './App';
 import routes from './routes';
-import elementUI from 'element-ui';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-default/index.css';
 
-Vue.use(elementUI);
+Vue.use(ElementUI);
 Vue.use(Electron);
 Vue.use(Resource);
 Vue.use(Router);
