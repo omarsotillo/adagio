@@ -16,7 +16,6 @@
     },
     methods: {
       placesAutocomplete() {
-          /* eslint-disable no-unused-vars */
         const placesAutocomplete = places({
           container: this.inputQueryDOM,
           style: true,
