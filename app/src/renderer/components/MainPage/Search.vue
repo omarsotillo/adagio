@@ -16,7 +16,6 @@
     },
     methods: {
       placesAutocomplete() {
-          /* eslint-disable no-unused-vars */
         const placesAutocomplete = places({
           container: this.inputQueryDOM,
           style: true,
@@ -32,8 +31,7 @@
               message: 'Loading',
             };
             this.$store.dispatch('changeAppState', payload);
-            this.$store.dispatch('fetchCoordinates', inputCity);
-            this.$store.dispatch('fetchWeather');
+            this.$store.dispatch('fetchWeather', inputCity);
           },
         );
       },

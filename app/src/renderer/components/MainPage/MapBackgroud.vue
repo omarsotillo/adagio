@@ -28,6 +28,8 @@
         const latitude = parseInt(this.latitude, 10);
         const longitude = parseInt(this.longitude, 10);
         GoogleMapsLoader.KEY = parameters.apiGoogleKey;
+
+        // Receives a field with information
         GoogleMapsLoader.load((google) => {
             /* eslint-disable no-new */
           new google.maps.Map(document.getElementById('map'), {
