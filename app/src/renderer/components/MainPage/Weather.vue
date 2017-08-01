@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p> Prueba {{ this.weather }}</p>
+        <pre>{{ this.weather | json }}</pre>
         <el-card class="box-card">
             <div slot="header" class="clearfix">
                 <span style="line-height: 36px;">Card name</span>

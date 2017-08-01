@@ -1,6 +1,6 @@
 <template>
     <div id="algoliaPlaces">
-        <input type="text" id="address-input" name="address-input" placeholder="Where do you want to know about the weather?"/>
+        <input type="text" id="address-input" name="address-input" placeholder="Introduce the place you want the weather..."/>
     </div>
 </template>
 <script>

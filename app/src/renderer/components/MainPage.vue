@@ -2,12 +2,12 @@
     <div>
         <map-background></map-background>
         <el-row class="logo">
-            <el-col :span="8" :offset="8">
-
+            <el-col :span="8" :offset="8" justify="center" align="middle">
+                <img src="../assets/adagio.png" alt="Adagio logo">
             </el-col>
         </el-row>
         <el-row class="search">
-            <el-col :span="8" :offset="8">
+            <el-col :span="8" :offset="8" >
                 <search></search>
             </el-col>
         </el-row>
